@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Biometric Login | Passwordless Authentication</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="css/landing.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold logo"
+           href="#">
+            <i class="bi bi-fingerprint"></i>
+            Biometric Login
+        </a>
+
+        <button class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="navbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a href="#home"
+                       class="nav-link">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#about"
+                       class="nav-link">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#features"
+                       class="nav-link">Features</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#security"
+                       class="nav-link">Security</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#contact"
+                       class="nav-link">Explore</a>
+                </li>
+
+                <li class="nav-item ms-lg-3">
+
+                    <a href="login.html"
+                       class="btn btn-outline-light me-2">
+
+                        Login
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a href="register.html"
+                       class="btn btn-primary">
+
+                        Register
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section id="home"
+         class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <span class="hero-tag">
+
+                    Passwordless Authentication
+
+                </span>
+
+                <h1 class="display-4 fw-bold mt-4">
+
+                    Secure Login With
+
+                    <span class="gradient-text">
+
+                        Face & Fingerprint
+
+                    </span>
+
+                </h1>
+
+                <p class="hero-description mt-4">
+
+                    Modern biometric authentication powered by WebAuthn.
+                    Replace passwords with secure fingerprint and facial
+                    recognition while keeping OTP as a secure fallback.
+
+                </p>
+
+                <div class="mt-5">
+
+                    <a href="register.html"
+                       class="btn btn-primary btn-lg me-3">
+
+                        Get Started
+
+                    </a>
+
+                    <a href="#features"
+                       class="btn btn-outline-light btn-lg">
+
+                        Learn More
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 text-center">
+
+                <div class="hero-card">
+
+                    <i class="bi bi-fingerprint hero-icon"></i>
+
+                    <h3>Biometric Security</h3>
+
+                    <p>
+
+                        Face Recognition<br>
+                        Fingerprint Authentication<br>
+                        Email OTP Recovery
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about"
+         class="section">
+
+    <div class="container text-center">
+
+        <h2>
+
+            Why Biometric Login?
+
+        </h2>
+
+        <p>
+
+            Passwords can be forgotten, reused, or stolen.
+            Our authentication system uses WebAuthn to provide
+            a secure passwordless experience across modern devices.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section id="features"
+         class="section">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <i class="bi bi-fingerprint"></i>
+
+                    <h4>
+
+                        Fingerprint
+
+                    </h4>
+
+                    <p>
+
+                        Secure biometric verification.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <i class="bi bi-camera-video"></i>
+
+                    <h4>
+
+                        Face Recognition
+
+                    </h4>
+
+                    <p>
+
+                        Authenticate using your device camera.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <i class="bi bi-shield-lock"></i>
+
+                    <h4>
+
+                        WebAuthn
+
+                    </h4>
+
+                    <p>
+
+                        Industry standard passwordless authentication.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <i class="bi bi-envelope-check"></i>
+
+                    <h4>
+
+                        OTP Recovery
+
+                    </h4>
+
+                    <p>
+
+                        Email fallback for biometric failures.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SECURITY ================= -->
+
+<section id="security"
+         class="section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <h2>
+
+                    Enterprise Grade Security
+
+                </h2>
+
+                <p>
+
+                    Your biometric information never leaves your device.
+                    WebAuthn stores only cryptographic credentials,
+                    making authentication resistant to phishing and
+                    password theft.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="security-box">
+
+                    <h4>
+
+                        ✔ Passwordless Login
+
+                    </h4>
+
+                    <h4>
+
+                        ✔ WebAuthn Standard
+
+                    </h4>
+
+                    <h4>
+
+                        ✔ Secure Email Recovery
+
+                    </h4>
+
+                    <h4>
+
+                        ✔ MongoDB + Flask Backend
+
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact"
+         class="section">
+
+    <div class="container text-center">
+
+        <h2>
+
+            Ready to Experience Secure Authentication?
+
+        </h2>
+
+        <p>
+
+            Register today and explore passwordless login.
+
+        </p>
+
+        <a href="register.html"
+           class="btn btn-primary btn-lg">
+
+            Create Account
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+
+            © 2026 Biometric Login site
+
+        </p>
+
+        <p>
+
+            Product Built by Sakthivel R 
+
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/landing.js"></script>
+
+</body>
+
+</html>

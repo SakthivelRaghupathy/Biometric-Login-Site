@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | BioSecure</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+<div class="page">
+
+  <aside class="left-panel">
+    <h1>BioSecure</h1>
+    <p>Passwordless Authentication Platform</p>
+
+    <div class="feature">
+      <h3>1. Enter Details</h3>
+      <p>Username and Email</p>
+    </div>
+
+    <div class="feature">
+      <h3>2. Register Biometrics</h3>
+      <p>Fingerprint / Face ID</p>
+    </div>
+
+    <div class="feature">
+      <h3>3. Login Securely</h3>
+      <p>Passwordless Login</p>
+    </div>
+  </aside>
+
+  <main class="right-panel">
+
+    <div class="card">
+
+      <h2>Create Account</h2>
+
+      <form id="registerForm">
+
+        <label>Username</label>
+        <input id="username" type="text" required>
+
+        <label>Email</label>
+        <input id="email" type="email" required>
+
+        <h3>Select Authentication</h3>
+
+        <div class="auth-grid">
+
+          <div class="auth-card"
+               id="fingerprintCard">
+
+              <div class="icon">👆</div>
+              <h4>Fingerprint</h4>
+              <p>Click to Register</p>
+
+          </div>
+
+          <div class="auth-card"
+               id="faceCard">
+
+              <div class="icon">😊</div>
+              <h4>Face ID</h4>
+              <p>Click to Register</p>
+
+          </div>
+
+          <div class="auth-card"
+               id="bothCard">
+
+              <div class="icon">🔐</div>
+              <h4>Both</h4>
+              <p>Click to Register</p>
+
+          </div>
+
+        </div>
+
+        <div id="statusCard">
+            <strong>Status</strong>
+            <p id="statusText">
+                Waiting for biometric registration...
+            </p>
+        </div>
+
+        <button
+            id="registerBtn"
+            disabled
+            type="submit">
+            Create Account
+        </button>
+
+      </form>
+
+      <p class="bottom">
+        Already have an account?
+        <a href="login.html">Login</a>
+      </p>
+
+    </div>
+
+  </main>
+
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="hidden"></div>
+
+<!-- Biometric Modal -->
+<div id="biometricModal" class="hidden">
+
+    <div class="modal">
+
+        <div id="modalIcon">👆</div>
+
+        <h2 id="modalTitle">
+            Register Fingerprint
+        </h2>
+
+        <p id="modalMessage">
+            Verify your identity using your device.
+        </p>
+
+        <div class="modal-buttons">
+
+            <button
+                id="cancelBiometric">
+
+                Cancel
+
+            </button>
+
+            <button
+                id="continueBiometric">
+
+                Verify with Device
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Loading -->
+<div id="loadingModal" class="hidden">
+
+    <div class="loading-box">
+
+        <div class="loader"></div>
+
+        <h3>Waiting for Windows Hello...</h3>
+
+        <p>
+            Complete biometric verification on your device.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- Success -->
+<div id="successModal" class="hidden">
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            ✅
+        </div>
+
+        <h2 id="successTitle">
+            Biometric Registered
+        </h2>
+
+        <p id="successMessage">
+            Your biometric was registered successfully.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- Error -->
+<div id="errorModal" class="hidden">
+
+    <div class="error-box">
+
+        <div class="error-icon">
+            ❌
+        </div>
+
+        <h2>Registration Failed</h2>
+
+        <p id="errorText">
+        </p>
+
+        <button id="closeError">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/register.js"></script>
+
+</body>
+</html>

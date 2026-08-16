@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="view=port" content="width=device-width, initial-scale=1.0">
+    <title>Login | BioSecure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+    </head>
+    <body>
+
+    <div class="page-container m-4">
+        
+        <div class="left-panel">
+            <h1 class="text-4xl font-bold mb-2">BioSecure</h1>
+            <p class="text-blue-200 text-sm mb-8">Passwordless Authentication Platform</p>
+
+            <div class="step-box">
+                <h3 class="font-semibold text-sm">1. Identify Account</h3>
+                <p class="text-xs text-blue-200 mt-1">Enter your registered username</p>
+            </div>
+
+            <div class="step-box">
+                <h3 class="font-semibold text-sm">2. Biometric Scan</h3>
+                <p class="text-xs text-blue-200 mt-1">Authenticate using your device's hardware</p>
+            </div>
+
+            <div class="step-box border-l-4 border-l-blue-400">
+                <h3 class="font-semibold text-sm text-white">3. OTP Fallback</h3>
+                <p class="text-xs text-blue-100 mt-1">Use email verification if biometrics fail</p>
+            </div>
+
+            <div class="step-box">
+                <h3 class="font-semibold text-sm">4. Access Dashboard</h3>
+                <p class="text-xs text-blue-200 mt-1">Secure and instant login complete</p>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            
+            <div id="methodView">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Welcome Back</h2>
+                    <p class="text-sm text-gray-500 mt-1">Sign in to your account</p>
+                </div>
+
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Username</label>
+                        <input type="text" id="username" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-gray-50 text-gray-800" placeholder="Enter your username">
+                    </div>
+
+                    <div class="pt-2">
+                        <label class="block text-sm font-semibold text-gray-700 mb-3 text-center">Authenticate With</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="auth-card" id="fingerprintCard" onclick="startBiometricLogin('fingerprint')">
+                                <div class="text-3xl mb-2">👆</div>
+                                <h4 class="font-semibold text-sm text-gray-800">Fingerprint</h4>
+                                <p class="text-xs text-gray-500 mt-1">Click to Scan</p>
+                            </div>
+                            
+                            <div class="auth-card" id="faceCard" onclick="startBiometricLogin('face')">
+                                <div class="text-3xl mb-2">😊</div>
+                                <h4 class="font-semibold text-sm text-gray-800">Face ID</h4>
+                                <p class="text-xs text-gray-500 mt-1">Click to Scan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email OTP Fallback Divider & Button -->
+                    <div class="relative flex items-center py-4 mt-2">
+                        <div class="flex-grow border-t border-gray-200"></div>
+                        <span class="flex-shrink-0 mx-4 text-gray-400 text-[10px] uppercase tracking-widest font-bold">Email OTP Fallback</span>
+                        <div class="flex-grow border-t border-gray-200"></div>
+                    </div>
+
+                    <button onclick="requestOTP()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3.5 px-4 rounded-xl transition shadow-lg flex justify-center items-center gap-2">
+                        <span class="text-lg">📧</span> Send OTP Code
+                    </button>
+                    
+                    <div class="text-center mt-6">
+                        <p class="text-sm text-gray-600">Don't have an account? <a href="register.html" class="text-blue-600 font-semibold hover:underline">Register</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="otpView" class="hidden h-full flex flex-col justify-center">
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl shadow-inner">✉️</div>
+                    <h2 class="text-2xl font-bold text-gray-800">Check Your Email</h2>
+                    <p class="text-sm text-gray-500 mt-2">We sent a secure 6-digit code to your registered email address.</p>
+                    
+                    <div id="emailDisplayBox" class="mt-3 bg-gray-50 border border-gray-200 rounded-lg py-2 px-4 inline-block hidden">
+                        <span class="text-xs text-gray-500">Sent to: </span>
+                        <strong id="displayEmail" class="text-sm text-gray-800 font-mono"></strong>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div>
+                        <input type="text" id="otpCode" maxlength="6" class="otp-input w-full px-4 py-4 rounded-xl border-2 border-gray-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 outline-none transition bg-white" placeholder="------" autocomplete="one-time-code">
+                    </div>
+
+                    <button onclick="verifyOTP()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 px-4 rounded-xl transition shadow-lg shadow-blue-500/30">
+                        Verify & Login
+                    </button>
+
+                    <div class="text-center mt-4">
+                        <button onclick="backToMethods()" class="text-sm text-gray-500 hover:text-gray-800 font-medium transition flex items-center justify-center w-full gap-1">
+                            <span>←</span> Back to Login Methods
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="loadingModal" class="modal">
+        <div class="w-10 h-10 border-4 border-gray-200 border-t-blue-500 rounded-full animate-spin mx-auto mb-4"></div>
+        <h3 id="loadingTitle" class="text-lg font-bold text-gray-800">Authenticating...</h3>
+        <p id="loadingDesc" class="text-sm text-gray-500 mt-2">Please wait.</p>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><span class="text-3xl">✅</span></div>
+        <h3 class="text-lg font-bold text-gray-800">Login Successful!</h3>
+        <p class="text-sm text-gray-500 mt-2">Redirecting to your dashboard...</p>
+    </div>
+
+    <div id="errorModal" class="modal">
+        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><span class="text-3xl">❌</span></div>
+        <h3 class="text-lg font-bold text-gray-800">Authentication Failed</h3>
+        <p id="errorText" class="text-sm text-gray-500 mt-2">Something went wrong.</p>
+        <button onclick="hideModals()" class="mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-xl transition">Close</button>
+    </div>
+    <script
+    src="js/api.js"></script>
+    <script  src="js/login.js"></script>
+    </body>
+    </html>
